@@ -62,7 +62,7 @@ for(i in seq_len(permut)){
 # 4.3 Create a list with the standard deviation of the mean of each group ----- 
 #      in each permutation
 for(i in seq_len(permut)){
-    for(j in 1:4){
+    for(j in 1:n.groups){
         prov_table[[j]] <- permutations_table[i][[1]]$sides_mean[(mice.grp*(j-1)+1):(mice.grp*j)]
     }
     prov_group.mean <- lapply(prov_table, function(prov_table){mean(prov_table)})
@@ -73,7 +73,7 @@ for(i in seq_len(permut)){
 # 4.4 Create a list with the standard deviation of the sd of the mean of  ----- 
 #      each group in each permutation
 for(i in seq_len(permut)){
-    for(j in 1:4){
+    for(j in 1:n.groups){
         prov_table[[j]] <- permutations_table[i][[1]]$sides_mean[(mice.grp*(j-1)+1):(mice.grp*j)]
     }
     prov_group.sd <- lapply(prov_table, function(prov_table){sd(prov_table)})
@@ -84,7 +84,7 @@ for(i in seq_len(permut)){
 # 4.5 Create a list with the standard deviation of the weight of each  ----- 
 #       group in each permutation
 for(i in seq_len(permut)){
-    for(j in 1:4){
+    for(j in 1:n.groups){
         prov_table[[j]] <- permutations_table[i][[1]]$weight[(mice.grp*(j-1)+1):(mice.grp*j)]
     }
     prova_group_weight <- lapply(prov_table, function(prov_table){mean(prov_table)})
